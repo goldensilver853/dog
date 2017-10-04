@@ -1,0 +1,67 @@
+<html>
+<body>
+<h1 align=center>TRUMP</h1>
+<input id="donaldtrump" type=text placeholder='number'></input>
+<button id="drumpf">DONALD</button>
+<br>
+<input id="mikepence" type=text placeholder='How are you feeling today?'></input>
+<button id="clinton">PENCE</button>
+<div id="pence">output</div>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$( "#drumpf" ).click(function() {
+  var pence = document.getElementById("donaldtrump").value;
+  var cruz = pence * pence;
+    if (pence == '') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: blue;'>Enter something you dingus!</span>";
+	}
+	else {
+	document.getElementById("pence").innerHTML = cruz;
+	$( "#pence" ).css({
+    fontSize: "" + cruz + "px",
+    color: "red",
+	});
+	}
+});
+
+$( "#clinton" ).click(function() {
+	if (document.getElementById('mikepence').value == 'happy') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>I am very pleased your emotions are good right now.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'sad') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>It's ok to feel sad. Unless it's over spilled milk in which case you are a wuss.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'depressed') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>Suicide isn't <u>the</u> answer, it's <u>an</u> answer.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'ok') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>Ok then.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'good') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>That's good.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'alright') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>Alrighty.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'decent') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>I'm feeling pretty decent myself today.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'bad') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>Bad dog.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'mediocre') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>Nothing better than to demonstrate your mediocrity in a mediocre program.</span>";
+	}
+	else if (document.getElementById('mikepence').value == 'jared from subway') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>You dirty pedophile.</span>";
+	}
+	else if (document.getElementById('mikepence').value == '') {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: orange;'>Enter something you dingus!</span>";
+	}
+	else {
+	document.getElementById("pence").innerHTML = "<span style='font-size: 16px; color: black;'>I can see you are feeling " + document.getElementById('mikepence').value + " today.</span>";
+	}
+});
+</script>
+</body>
+</html>

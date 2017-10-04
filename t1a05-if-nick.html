@@ -1,0 +1,35 @@
+<html>
+<body>
+<h1 align=center>PENCE</h1>
+<br>
+<input id="in" type=text placeholder="Enter a number"></input><button id="dog">TRUMP</button>
+<br>
+<div id="arse"></div>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$( "#dog" ).click(function() {
+  var drumpf = document.getElementById('in').value;
+  var cat = (< 18);
+  if (drumpf == 4){
+	document.getElementById('arse').innerHTML = 'You\'ve entered the correct value of 4!';
+  }
+  else if (drumpf > 8){
+	document.getElementById('arse').innerHTML = 'You\'ve entered a number greater than 4!';
+  }
+  else if (drumpf < 1){
+	document.getElementById('arse').innerHTML = 'You\'ve entered a number less than 4!';
+  }
+  else if (drumpf <= 3){
+	document.getElementById('arse').innerHTML = 'You\'ve entered a number less or equal to 3!';
+  }
+  else if (drumpf >= 5){
+	document.getElementById('arse').innerHTML = 'You\'ve entered a number greater than or equal to 5!';
+  }
+  else if (isNaN(drumpf)){
+	document.getElementById('arse').innerHTML = 'Enter a number you wringly dingus!';
+  }
+});
+
+</script>
+</body>
+</html>

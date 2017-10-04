@@ -1,0 +1,46 @@
+<html>
+<body>
+<h1 align=center>Telephone</h1>
+<br>
+<script>
+function antelope(age, name, pic) {
+	this.antelopeAge = age;
+	this.antelopeName = name;
+	this.antelopePic = pic;
+	this.showInfo = function(){
+	if (this.antelopeAge == 1){
+		document.getElementById('cat').innerHTML += 'I am an Antelope and my name is ' + this.antelopeName + '. I am ' + this.antelopeAge + ' year old. Here is my profile picture: <img width=10% src="' + this.antelopePic + '"></img><br>';
+	}  else {
+		document.getElementById('cat').innerHTML += 'I am an Antelope and my name is ' + this.antelopeName + '. I am ' + this.antelopeAge + ' years old. Here is my profile picture: <img width=10% src="' + this.antelopePic + '"></img><br>';
+	}
+	};
+	
+}
+</script>
+<input type=text placeholder="Name" id="customName">
+<br>
+<input type=number placeholder="Age" id="customAge">
+<br>
+<input type=text placeholder="Link to your image" id="customImage">
+<br>
+<input type=button value="Show your info" onclick="{
+	custom = new antelope(document.getElementById('customAge').value, document.getElementById('customName').value, document.getElementById('customImage').value);
+	custom.showInfo();
+}">
+<hr>
+<input type=button value="Set name as Gerald" onclick="{
+	gerald = new antelope(69, 'Gerald', 'https://images-na.ssl-images-amazon.com/images/I/81FLSJI-loL._SL1500_.jpg');
+}">
+<br>
+<input type=button value="Show Gerald's info" onclick="{
+	gerald.showInfo();
+}">
+<br>
+<input type=button value="Set name as Harold and show info" onclick="{
+	harold = new antelope(420, 'Harold', 'https://images-na.ssl-images-amazon.com/images/I/71qxJIuwBbL._SL1500_.jpg');
+	harold.showInfo();
+}">
+<br>
+<div id="cat"></div>
+</body>
+</html>

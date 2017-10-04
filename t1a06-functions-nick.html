@@ -1,0 +1,13 @@
+<script>
+function octopus(rat){
+	return rat * rat * rat;
+}
+</script>
+<h1 align=center>Dog</h1>
+<input type=text id="cat" value=6></input>
+<br>
+<input type=button onclick="{
+document.getElementById('human').innerHTML = octopus(document.getElementById('cat').value);
+}" value=Cube></input>
+<br>
+<div id="human"></div>

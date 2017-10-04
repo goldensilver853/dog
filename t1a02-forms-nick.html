@@ -1,0 +1,77 @@
+<html>
+<body>
+<head>
+<style>
+body {
+	background-image: url('bg.jpg');
+}
+ol, li, body {
+	font: 15px arial, sans-serif;
+}
+#main:hover, h1:hover {
+	background-color: rgba(66, 197, 244, 1.0);
+	transition: background-color, 0.2s;
+}
+
+#main {
+	background-color: rgba(66, 197, 244, 0.4);
+	transition: background-color, 0.2s;
+	margin: auto;
+	width: 30%;
+	display: block;
+	border-radius: 10px;
+}
+
+h1 {
+	background-color: rgba(66, 197, 244, 0.4);
+	transition: background-color, 0.2s;
+	margin: auto;
+	width: 25%;
+	display: block;
+	border-radius: 10px;
+}
+</style>
+<title>Forms</title>
+</head>
+<h1 align=center>Hot Dog Order Form</h1>
+<br>
+<div id="main">
+<form>
+<ol>
+<li>Bread Type <input type=text placeholder="White"></input></li>
+<li>Weiner Color <input type=color value="#ff0000"></input></li>
+<li>Secret Discount Code <input type=password placeholder="****"></input></li>
+<li>Condiments 
+<br>
+Mustard<input type=checkbox name="check1"></input><br>
+Ketchup<input type=checkbox name="check1"></input><br>
+Relish<input type=checkbox name="check1"></input></li>
+<li>Reference Image <input type=file value="trump"></input></li>
+<li>Amount of Hot Dogs <input type=number min="1" max="10"></input></li>
+<li>Weiner Length 
+<br>
+4"<input type=radio name="radio1"></input>
+<br>
+6"<input type=radio name="radio1"></input>
+<br>
+8"<input type=radio name="radio1"></input>
+</li>
+<li>Email <input type=email></input></li>
+<li>Date you plan to pickup <input type=date></input></li>
+<li>Hidden Option <input type=hidden></input> <- It's there but you cannot see it.</li>
+<li>Local Date and Time for pickup <input type=datetime-local></input></li>
+<li>Amount of sauce <input type="range"></input></li>
+<li>Referral Link <input type=url value="http://www.google.ca"></input></li>
+<li>Your Phone Number<input type=tel value="555-555-5555"></input></li>
+<li>Search for more hot dogs <input type=search></input></li>
+<li>Bun slicing <input id="slicer" type=button value="Click to slice bun" onclick="this.value='Bun Sliced'"></input></li>
+<li>Time of pickup <input type=time></input></li>
+<li>Reset your order <input type=reset></input></li>
+<li>Submit your order <input type=submit></input></li>
+</form>
+</div>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+</script>
+</body>
+</html>

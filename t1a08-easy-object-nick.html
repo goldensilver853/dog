@@ -1,0 +1,44 @@
+<html>
+<body>
+<script>
+function bobcat(x){
+	this.pussycat = x * 5;
+	this.puppydog = function(){
+		document.getElementById('main').innerHTML = 'The property <b>bobcat.pussycat</b> = ' + this.pussycat + ', but the variable that was passed <b>x</b> = ' + x;
+	}
+}
+
+function squirrel(y){
+	this.pussycat = y * -1;
+	this.puppydog = function(){
+		document.getElementById('main').innerHTML = 'The property <b>squirrel.pussycat</b> = ' + this.pussycat + ', but the variable that was passed <b>y</b> = ' + y;
+	}
+}
+
+function fox(z){
+	this.pussycat = z * 99;
+	this.puppydog = function(){
+		document.getElementById('main').innerHTML = 'The property <b>fox.pussycat</b> = ' + this.pussycat + ', but the variable that was passed <b>z</b> = ' + z;
+	}
+}
+</script>
+<h1 align=center>T1A08</h1>
+<br>
+<input type=button value="Bobcat me" onclick="{
+	chipmunk = new bobcat(4);
+	chipmunk.puppydog();
+}">
+<br>
+<input type=button value="Squirrel me" onclick="{
+	chipmunk = new squirrel(39);
+	chipmunk.puppydog();
+}">
+<br>
+<input type=button value="Fox me" onclick="{
+	chipmunk = new fox(78);
+	chipmunk.puppydog();
+}">
+<br>
+<div id="main">Output here</div>
+</body>
+</html>
