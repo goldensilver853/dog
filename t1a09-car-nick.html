@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Drive</title>
+</head>
+<body onkeypress="moveCar();">
+<input type=number min="1" max="100" id="speed" value="5" />← Enter the speed in pixels here
+<img id="vehicle" src="car.png" style="position:absolute; width:30px; height:30px; left:155px; top:500px; transition: top 0.1s, left 0.1s;" />
+<script>
+function moveCar(){
+	movement = new direction(document.getElementById("speed").value);
+	if(event.keyCode==97){
+	movement.left();
+	// a key (left)
+	}
+	if(event.keyCode==119){
+	movement.up();
+	// w key (up)
+	}
+	if(event.keyCode==115){
+	movement.down();
+	//s key (down)
+	}   
+	if(event.keyCode==100){
+	movement.right();
+	//d key (right)
+	}  
+}
+
+function direction(dis){
+	var vel = parseInt(dis);
+	this.left = function(){
+	document.getElementById('vehicle').style.left  = parseInt(document.getElementById('vehicle').style.left) - vel + 'px';
+	};
+	this.right = function(){
+	document.getElementById('vehicle').style.left  = parseInt(document.getElementById('vehicle').style.left) + vel + 'px';
+	};
+	this.up = function(){
+	document.getElementById('vehicle').style.top  = parseInt(document.getElementById('vehicle').style.top) - vel + 'px';
+	};
+	this.down = function(){
+	document.getElementById('vehicle').style.top  = parseInt(document.getElementById('vehicle').style.top) + vel + 'px';
+	};
+}
+</script>
+</body>
+</html>
