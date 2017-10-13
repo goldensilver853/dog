@@ -29,12 +29,23 @@
 </script>
 <textarea id="maintext">Nick</textarea>
 <br>
+<input type=text value=5 id="dog"></input>
+<br>
 <p>Type something in this textarea prior to pressing "Push the Array".</p>
 <br>
 <input type=button value="Display the Array" onclick="{
   document.getElementById('main').innerHTML = ''
   for (myLoop = 0; myLoop <= names.length -1; myLoop++){
-document.getElementById('main').innerHTML += myLoop +': '+ document.names[myLoop]+' <br>' 
+	document.getElementById('main').innerHTML += myLoop +': '+ document.names[myLoop]+' <br>' 
+  }
+}">
+<br>
+<input type=button value="Random Array" onclick="{
+  document.getElementById('main').innerHTML = ''
+  octopusArray = new Array();
+  for (myLoop = 0; myLoop <= document.getElementById('dog').value -1; myLoop++){
+  octopusArray[myLoop] = Math.round(Math.random()*69);
+	document.getElementById('main').innerHTML += myLoop +': '+ octopusArray[myLoop]+' <br>' 
   }
 }">
 <br>
