@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Dog</title>
+</head>
+<body>
+<h1 align=center>Cat</h1>
+<br>
+<p>Solve the quadratic equation below:<p>
+<p><input style="width:30px;" type=text id="rat" placeholder="x" ></input> 
+<p>Y=<input style="width:30px;" type=text id="dog" placeholder="a"></input><span class="xcal">x</span><sup>2</sup>+<input style="width:30px;" type=text id="cat" placeholder="b"></input><span class="xcal">x</span>+<input style="width:30px;" type=text id="mouse" placeholder=c></input></p>
+<input type=button id="run" value="Solve the equation" onclick="{quadratic();}"></button>
+<br>
+<p>y=<span id="output"></span></p>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+function quadratic(){
+	var a = document.getElementById("dog").value;
+	var b = document.getElementById("cat").value;
+	var c = document.getElementById("mouse").value;
+	var x = document.getElementById("rat").value;
+
+	document.getElementById("output").innerHTML = a*x*x + b*x + c*1;
+}
+
+$("#rat").on("change keyup paste", function(){
+    document.getElementByClassName("xcal").innerHTML = document.getElementById("rat").value;
+});
+</script>
+</body>
+</html>
