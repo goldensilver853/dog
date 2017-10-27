@@ -1,0 +1,92 @@
+<html>
+<head>
+<style>
+#4 {
+	display: block;
+	position: relative;
+	left: 0px;
+}
+</style>
+<body onload="{alert('This is onload in action.');}">
+<h1 align=center>Eventful Event of Events</h1>
+<br>
+<div id="1">
+<p>Onclick:
+<button onclick="{document.getElementById('1').style.backgroundColor = 'blue';}">Onclick</button>
+</div>
+<div id="2">
+<p>Onmouseover and onmouseout:
+<b onmouseover="{document.getElementById('2').style.backgroundColor = 'blue';}" onmouseout="{document.getElementById('2').style.backgroundColor = 'white';}">Hover over me</b>
+</div>
+<div id="3">
+<p>Onkeydown and onkeyup:
+<input type=text placeholder="Press any key to affect me" onkeydown="{document.getElementById('3').style.backgroundColor = 'blue';}" onkeyup="{document.getElementById('3').style.backgroundColor = 'white';}"></input>
+</div>
+<div id="4">
+<p>Onkeypress:
+<input id="4a" type=text placeholder="Press any key to affect me" onkeypress="{alert('This is onkeypress in action.');}"></input>
+</div>
+<div id="5">
+<p>Ondblclick:
+<b ondblclick="{document.getElementById('5').style.backgroundColor = 'blue';}">Double click me</b>
+</div>
+<div id="5">
+<p>Ontouchstart (Must use cellular telephone with touch screen):
+<b ontouchstart="{document.getElementById('5').style.backgroundColor = 'blue';}">Touch me</b>
+</div>
+<div id="6">
+<p>Onvolumechange:
+<audio controls src="stayinalive.mp3" onvolumechange="{document.getElementById('6').style.backgroundColor = 'blue';}"></audio>
+</div>
+<div id="7">
+<p>Onwheel:
+<b onwheel="{document.getElementById('7').style.backgroundColor = 'blue';}">Move your mouse wheel over me</b>
+</div>
+<div id="8">
+<p>Ontoggle:
+<details ontoggle="{document.getElementById('8').style.backgroundColor = 'blue';}"><summary>Open me</summary>Hello!</details>
+</div>
+<div id="9">
+<p>Onended:
+<audio controls src="chord.wav" onended="{alert('This is onended in action.');}"></audio>
+</div>
+<div id="10">
+<p>Onpaste:
+<input type=text placeholder="Paste something here" onpaste="{document.getElementById('10').style.backgroundColor = 'blue';}"></input>
+</div>
+<div id="11">
+<p>Oncopy:
+<input type=text value="Copy this" oncopy="{document.getElementById('11').style.backgroundColor = 'blue';}"></input>
+</div>
+<div id="12">
+<p>Oncut:
+<input type=text value="Cut this" oncut="{document.getElementById('12').style.backgroundColor = 'blue';}"></input>
+</div>
+<div id="13">
+<p>Onselect:
+<input type=text value="Select this" onselect="{document.getElementById('13').style.backgroundColor = 'blue';}"></input>
+</div>
+<div id="14">
+<p>Oninput:
+<input type=text placeholder="Write something here" oncut="{document.getElementById('14').style.backgroundColor = 'blue';}"></input>
+</div>
+<div id="15">
+<p>Onsubmit:
+<form>
+<input type=submit value="Submit" onsubmit="{alert('This is the onsubmit element in action.);}"></input>
+</form>
+</div>
+<div id="16">
+<p>Onchange:
+<input type=text value="Change this" onchange="{document.getElementById('16').style.backgroundColor = 'blue';}"></input>
+</div>
+<div id="17">
+<p>Onresize:
+<b onresize="{document.getElementById('17').style.backgroundColor = 'blue';}">Resize this page</b>
+</div>
+<div id="18">
+<p>Onload:
+<p>You saw this in action when the page loaded.
+</div>
+</body>
+</html>
