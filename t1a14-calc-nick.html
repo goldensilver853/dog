@@ -1,0 +1,190 @@
+<html>
+<body>
+<p style="color: red;">Note: The trigonometric features of this calculator calculate all values in degrees, not radians. If you want radians, convert the value yourself ya dingus!<p>
+<input type=text id="num1"></input><select id="op" onchange="setBox()"><option id="add" value="plus">+</option><option id="sub" value="minus">-</option><option id="times" value="multi">x</option><option id="div" value="divide">÷</option><option id="square" value="sq">²</option><option id="squareroot" value="sqrt">√</option><option id="xroot" value="root">ˣ√</option><option id="expo" value="exp">yˣ</option><option id="sine" value="sin">sin()</option><option id="cosine" value="cos">cos()</option><option id="tangent" value="tan">tan()</option><option id="asine" value="asin">sin⁻¹</option><option id="acosine" value="acos">cos⁻¹</option><option id="atangent" value="atan">tan⁻¹</option></select><input type=text id="num2"></input><input type=button id="equals" value="=" onclick="runMath()"></input>
+<br>
+<div id="output"></div>
+<br>
+<hr>
+<br>
+<p>Point 1 - x:<input type=text id="pt1x"></input> y:<input type=text id="pt1y"></input>
+<p>Point 2 - x:<input type=text id="pt2x"></input> y:<input type=text id="pt2y"></input>
+<p>Point 3 - x:<input type=text id="pt3x"></input> y:<input type=text id="pt3y"></input>
+<p>Point 4 - x:<input type=text id="pt4x"></input> y:<input type=text id="pt4y"></input>
+<p>Point 5 - x:<input type=text id="pt5x"></input> y:<input type=text id="pt5y"></input>
+<br>
+<input type=button id="setvector" value="Set Graph" onclick="runGraph()"></input>
+<br>
+<div id="graph" style="background-color: lightblue; width: 1000px; height: 500px;">
+<svg height="500" width="1000">
+</svg>
+</div>
+<script>
+function runMath(){
+var ddl = document.getElementById("op");
+var selectedValue = ddl.options[ddl.selectedIndex].value;
+var par1 = "";
+var par2 = "";
+var par3 = "";
+var preout = "";
+   if (selectedValue == "plus"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = parseFloat(par1) + parseFloat(par2);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' + ' + par2 + ' = ' + par3 + '<br>' + preout;
+	par3 = "";
+   }
+   else if (selectedValue == "minus"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = parseFloat(par1) - parseFloat(par2);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' - ' + par2 + ' = ' + par3 + '<br>' + preout;
+	par3 = "";
+   }
+   else if (selectedValue == "multi"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = parseFloat(par1) * parseFloat(par2);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' x ' + par2 + ' = ' + par3 + '<br>' + preout;
+	par3 = "";
+   }
+   else if (selectedValue == "divide"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = parseFloat(par1) / parseFloat(par2);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' ÷ ' + par2 + ' = ' + par3 + '<br>' + preout;
+	par3 = "";
+   }
+   else if (selectedValue == "sq"){
+    par1 = document.getElementById("num1").value;
+    par3 = parseFloat(par1) * parseFloat(par1);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' <sup>2</sup> ' + ' = ' + par3 + '<br>' + preout;
+	par3 = "";
+   }
+   else if (selectedValue == "exp"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = Math.pow(parseFloat(par1), parseFloat(par2));
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' <sup> ' + par2 + '</sup> = ' + par3 + '<br>' + preout;
+	par3 = "";
+   }
+   else if (selectedValue == "sin"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+	if (!par1.match(/\S/)){
+    par3 = Math.sin(parseFloat(par2) * (Math.PI / 180));
+	par1 = 1;
+    } else {
+    par3 = parseFloat(par1) * Math.sin(parseFloat(par2) * (Math.PI / 180));
+	}
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' x ' + 'sin(' + par2 + ')' + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+   else if (selectedValue == "cos"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+	if (!par1.match(/\S/)){
+    par3 = Math.cos(parseFloat(par2) * (Math.PI / 180));
+	par1 = 1;
+    } else {
+    par3 = parseFloat(par1) * Math.cos(parseFloat(par2) * (Math.PI / 180));
+	}
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' x ' + 'cos(' + par2 + ')' + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+   else if (selectedValue == "tan"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+	if (!par1.match(/\S/)){
+    par3 = Math.tan(parseFloat(par2) * (Math.PI / 180));
+	par1 = 1;
+    } else {
+    par3 = parseFloat(par1) * Math.tan(parseFloat(par2) * (Math.PI / 180));
+	}
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = par1 + ' x ' + 'tan(' + par2 + ')' + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+    else if (selectedValue == "asin"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = Math.asin(parseFloat(par1) / parseFloat(par2)) / (Math.PI / 180);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = 'sin<sup>-1</sup>(' + par1 + ' ÷ ' + par2 + ')' + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+    else if (selectedValue == "acos"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = Math.acos(parseFloat(par1) / parseFloat(par2)) / (Math.PI / 180);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = 'cos<sup>-1</sup>(' + par1 + ' ÷ ' + par2 + ')' + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+    else if (selectedValue == "atan"){
+    par1 = document.getElementById("num1").value;
+	par2 = document.getElementById("num2").value;
+    par3 = Math.atan(parseFloat(par1) / parseFloat(par2)) / (Math.PI / 180);
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = 'tan<sup>-1</sup>(' + par1 + ' ÷ ' + par2 + ')' + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+    else if (selectedValue == "root"){
+	par1 = document.getElementById("num1").value;
+    par2 = document.getElementById("num2").value;
+    par3 = Math.pow(parseFloat(par2), 1 / parseFloat(par1));
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = '<sup>' + par1 + '</sup>√' + par2 + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+   else if (selectedValue == "sqrt"){
+    par2 = document.getElementById("num2").value;
+    par3 = Math.sqrt(parseFloat(par2));
+	preout = document.getElementById("output").innerHTML;
+	document.getElementById("output").innerHTML = '√' + par2 + ' = ' + par3 + '<br>' + preout;	
+	par3 = "";
+   }
+   
+}
+function setBox(){
+var opt = document.getElementById("op").value;
+if (opt == "sq"){
+	document.getElementById("num2").disabled = true;
+    document.getElementById("num1").disabled = false;
+}
+else if (opt == "sqrt"){
+	document.getElementById("num1").disabled = true;
+	document.getElementById("num2").disabled = false;
+}
+else {
+	document.getElementById("num1").disabled = false;
+	document.getElementById("num2").disabled = false;
+}
+}
+
+function runGraph(){
+ var ptx1 = document.getElementById("pt1x").value;
+ var ptx2 = document.getElementById("pt2x").value;
+ var ptx3 = document.getElementById("pt3x").value;
+ var ptx4 = document.getElementById("pt4x").value;
+ var ptx5 = document.getElementById("pt5x").value;
+ 
+ var pty1 = parseFloat(500 - document.getElementById("pt1y").value);
+ var pty2 = parseFloat(500 - document.getElementById("pt2y").value);
+ var pty3 = parseFloat(500 - document.getElementById("pt3y").value);
+ var pty4 = parseFloat(500 - document.getElementById("pt4y").value);
+ var pty5 = parseFloat(500 - document.getElementById("pt5y").value);
+ 
+ document.getElementById("graph").innerHTML = '<svg height="500" width="1000"><line x1="' + ptx1 + '" y1="' + pty1 + '" x2="' + ptx2 + '" y2="' + pty2 + '" style="stroke:rgb(255,0,0);stroke-width:2" /><line x1="' + ptx2 + '" y1="' + pty2 + '" x2="' + ptx3 + '" y2="' + pty3 + '" style="stroke:rgb(255,0,0);stroke-width:2" /><line x1="' + ptx3 + '" y1="' + pty3 + '" x2="' + ptx4 + '" y2="' + pty4 +'" style="stroke:rgb(255,0,0);stroke-width:2" /><line x1="' + ptx4 + '" y1="' + pty4 + '" x2="' + ptx5 + '" y2="' + pty5 + '" style="stroke:rgb(255,0,0);stroke-width:2" /></svg>';
+}
+</script>
+</body>
+</html>
