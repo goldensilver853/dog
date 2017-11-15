@@ -8,6 +8,7 @@
 </style>
 </head>
 <body onkeypress="{main();}" onload="{setInterval(cannonball, 5);}">
+<div id="audio1"></div>
 <img  id="vehicle"  src="car.png"  style="position:absolute; width:30px; height:30px; left:30px; top:10px">  
 <br><br><br><br>
 <img  id="cannon1"  src="cannon1.png"  style="position:absolute; width:30px; height:30px; left:500px; top:300px" /><img src="cannonball.png" id="ball1" style="position:absolute; width:10px; height:10px; left:500px; top:300px" /><br>
@@ -15,7 +16,7 @@
 <img  id="cannon3"  src="cannon3.png"  style="position:absolute; width:30px; height:30px; left:789px; top:822px" /><img src="cannonball.png" id="ball3" style="position:absolute; width:10px; height:10px; left:789px; top:822px" /><br>
 <img  id="cannon4"  src="cannon4.png"  style="position:absolute; width:30px; height:30px; left:103px; top:200px" /><img src="cannonball.png" id="ball4" style="position:absolute; width:10px; height:10px; left:103px; top:200px" /><br>
 <img  id="cannon5"  src="cannon5.png"  style="position:absolute; width:30px; height:30px; left:1129px; top:765px" /><img src="cannonball.png" id="ball5" style="position:absolute; width:10px; height:10px; left:1129px; top:765px" /><br>
-<div id="output">...</div>
+<div id="output">Score: 0</div>
 <script>
 var score = 0;
 function main(){
@@ -47,6 +48,7 @@ function main(){
 	document.getElementById('cannon1').style.left  = '-5000px';
 	document.getElementById('cannon1').style.top  = '-5000px';
 	document.getElementById('ball1').classList.toggle('inactive');
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon2')  == true) {
@@ -55,6 +57,7 @@ function main(){
 	document.getElementById('cannon2').style.left  = '-5000px';
 	document.getElementById('cannon2').style.top  = '-5000px';
 	document.getElementById('ball2').classList.toggle('inactive');
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon3')  == true) {
@@ -63,6 +66,7 @@ function main(){
 	document.getElementById('cannon3').style.left  = '-5000px';
 	document.getElementById('cannon3').style.top  = '-5000px';
 	document.getElementById('ball3').classList.toggle('inactive');
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon4')  == true) {
@@ -71,6 +75,7 @@ function main(){
 	document.getElementById('cannon4').style.left  = '-5000px';
 	document.getElementById('cannon4').style.top  = '-5000px';
 	document.getElementById('ball4').classList.toggle('inactive');
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon5')  == true) {
@@ -79,6 +84,7 @@ function main(){
 	document.getElementById('cannon5').style.left  = '-5000px';
 	document.getElementById('cannon5').style.top  = '-5000px';
 	document.getElementById('ball5').classList.toggle('inactive');
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}
 	
 	
@@ -117,10 +123,10 @@ function collide(my1, my2){
 
 function cannonball() {
     document.getElementById('ball1').style.left  = parseInt(document.getElementById('ball1').style.left) - 2 + 'px';
-	document.getElementById('ball2').style.left  = parseInt(document.getElementById('ball2').style.left) - 2 + 'px';
-	document.getElementById('ball3').style.left  = parseInt(document.getElementById('ball3').style.left) - 2 + 'px';
+	document.getElementById('ball2').style.left  = parseInt(document.getElementById('ball2').style.left) - 3 + 'px';
+	document.getElementById('ball3').style.left  = parseInt(document.getElementById('ball3').style.left) - 7 + 'px';
 	document.getElementById('ball4').style.left  = parseInt(document.getElementById('ball4').style.left) - 2 + 'px';
-	document.getElementById('ball5').style.left  = parseInt(document.getElementById('ball5').style.left) - 2 + 'px';
+	document.getElementById('ball5').style.left  = parseInt(document.getElementById('ball5').style.left) - 4 + 'px';
 	
 	if (collide('vehicle', 'ball1')  == true) {
 	if ( document.getElementById('ball1').classList.contains('inactive') ){
