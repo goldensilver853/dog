@@ -1,0 +1,58 @@
+<html>
+<style>
+body {
+	background-image: url('car.png');
+	background-position:10px 200px;
+}
+#main {
+	width: 250px;
+	background-color: white;
+	border-radius: 6px;
+	border-width: 4px;
+	padding: 3px;
+}
+</style>
+<body id="dog">
+<h1 align=center>Moving Backgrounds and timers</h1>
+<br>
+<div id="main">
+<input type=text id="textbox" value="Hello!"></input>
+<br>
+<input type=button id="timeout" value="Only click if you have patience" onclick="runTimeout();"></input>
+<br>
+<input type=button id="interval" value="Run the text" onclick="runInterval();"></input>
+<br>
+<input type=button id="clear" value="Stop the text" onclick="stopInterval();"></input>
+<br>
+<input type=button id="bgpos" value="Move the Background" onclick="runBg();"></input>x:<input id="xspeed" type=number value=1 style="width: 30px;"></input> y:<input id="yspeed" type=number value=1 style="width: 30px;"></input>
+<br>
+<input type=button id="bgstop" value="Stop the background" onclick="stopBg();"></input>
+<br>
+<div id="output"></div>
+</div>
+<script>
+var dog = setInterval(function(){ document.getElementById('output').innerHTML += document.getElementById('textbox').value + '<br>'; }, 300);
+var cat = '';
+function runTimeout(){
+	setTimeout(function(){ document.getElementById('output').innerHTML += 'You are sufficiently patient. <br>'; }, 500);
+}
+function runInterval(){
+	dog = setInterval(function(){ document.getElementById('output').innerHTML += document.getElementById('textbox').value + '<br>'; }, 300);
+}
+function stopInterval(){
+	clearInterval(dog);
+}
+function runBg(){
+	var xspeed = parseInt(document.getElementById('xspeed').value);
+	var yspeed = parseInt(document.getElementById('yspeed').value);
+	var x = xspeed;
+	var y = yspeed;
+	cat = setInterval(function(){  x += xspeed; y += yspeed; document.getElementById('dog').style.backgroundPosition = "" + x + "px " + y + "px"; }, 30);
+}
+function stopBg(){
+	clearInterval(cat);
+}
+
+</script>
+</body>
+</html>
