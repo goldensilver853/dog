@@ -8,21 +8,26 @@
 </style>
 </head>
 <body onkeypress="{main();}" onload="{setInterval(cannonball, 5);}">
+<div id="audio1"></div>
 <img  id="vehicle"  src="car.png"  style="position:absolute; width:30px; height:30px; left:30px; top:10px">  
 <br><br><br><br>
 <img  id="cannon1"  src="cannon1.png"  style="position:absolute; width:30px; height:30px; left:500px; top:300px" /><img src="cannonball.png" id="ball1" style="position:absolute; width:10px; height:10px; left:500px; top:300px" /><br>
 <img  id="cannon2"  src="cannon2.png"  style="position:absolute; width:30px; height:30px; left:895px; top:129px" /><img src="cannonball.png" id="ball2" style="position:absolute; width:10px; height:10px; left:895px; top:129px" /><br>
-<img  id="cannon3"  src="cannon3.png"  style="position:absolute; width:30px; height:30px; left:789px; top:822px" /><img src="cannonball.png" id="ball3" style="position:absolute; width:10px; height:10px; left:789px; top:822px" /><br>
+<img  id="cannon3"  src="cannon3.png"  style="position:absolute; width:30px; height:30px; left:789px; top:697px" /><img src="cannonball.png" id="ball3" style="position:absolute; width:10px; height:10px; left:789px; top:697px" /><br>
 <img  id="cannon4"  src="cannon4.png"  style="position:absolute; width:30px; height:30px; left:103px; top:200px" /><img src="cannonball.png" id="ball4" style="position:absolute; width:10px; height:10px; left:103px; top:200px" /><br>
-<img  id="cannon5"  src="cannon5.png"  style="position:absolute; width:30px; height:30px; left:1129px; top:765px" /><img src="cannonball.png" id="ball5" style="position:absolute; width:10px; height:10px; left:1129px; top:765px" /><br>
-<div id="output">...</div>
+<img  id="cannon5"  src="cannon5.png"  style="position:absolute; width:30px; height:30px; left:1129px; top:760px" /><img src="cannonball.png" id="ball5" style="position:absolute; width:10px; height:10px; left:1129px; top:760px" /><br>
+<div id="output">Score: 0</div>
+<div id="level">Level: 1</div>
 <script>
 var score = 0;
+var level = 1;
+var ballspeed = 0;
 function main(){
-
-	if (score == 5){
-	alert('You win! Congratulations!');
-	location.reload();
+	if(score == 5){
+	score = 0;
+	level += 1;
+	document.getElementById('level').innerHTML = 'Level: ' + level;
+	document.getElementById('score').innerHTML = 'Score: ' + score;
 	}
 	if(event.keyCode==97){
 	document.getElementById('vehicle').style.left  = parseInt(document.getElementById('vehicle').style.left) - 5 + 'px';
@@ -42,70 +47,78 @@ function main(){
 	}
 	
 	if (collide('vehicle', 'cannon1')  == true) {
-	score += 1;
+	update();
 	document.getElementById('output').innerHTML =  'Score: ' + score;
-	document.getElementById('cannon1').style.left  = '-5000px';
-	document.getElementById('cannon1').style.top  = '-5000px';
-	document.getElementById('ball1').classList.toggle('inactive');
+	document.getElementById('cannon1').style.left = Math.floor(Math.random() * screen.availWidth) + 1 + 'px';
+	document.getElementById('cannon1').style.top  = Math.floor(Math.random() * screen.availHeight - 50) + 1 + 'px';
+	document.getElementById('ball1').style.left = document.getElementById('cannon1').style.left;
+	document.getElementById('ball1').style.top = document.getElementById('cannon1').style.top;
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon2')  == true) {
-	score += 1;
+	update();
 	document.getElementById('output').innerHTML =  'Score: ' + score;
-	document.getElementById('cannon2').style.left  = '-5000px';
-	document.getElementById('cannon2').style.top  = '-5000px';
-	document.getElementById('ball2').classList.toggle('inactive');
+	document.getElementById('cannon2').style.left = Math.floor(Math.random() * screen.availWidth) + 1 + 'px';
+	document.getElementById('cannon2').style.top  = Math.floor(Math.random() * screen.availHeight - 50) + 1 + 'px';
+	document.getElementById('ball2').style.left = document.getElementById('cannon2').style.left;
+	document.getElementById('ball2').style.top = document.getElementById('cannon2').style.top;
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon3')  == true) {
-	score += 1;
+	update();
 	document.getElementById('output').innerHTML =  'Score: ' + score;
-	document.getElementById('cannon3').style.left  = '-5000px';
-	document.getElementById('cannon3').style.top  = '-5000px';
-	document.getElementById('ball3').classList.toggle('inactive');
+	document.getElementById('cannon3').style.left = Math.floor(Math.random() * screen.availWidth) + 1 + 'px';
+	document.getElementById('cannon3').style.top  = Math.floor(Math.random() * screen.availHeight - 50) + 1 + 'px';
+	document.getElementById('ball3').style.left = document.getElementById('cannon3').style.left;
+	document.getElementById('ball3').style.top = document.getElementById('cannon3').style.top;
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon4')  == true) {
-	score += 1;
+	update();
 	document.getElementById('output').innerHTML =  'Score: ' + score;
-	document.getElementById('cannon4').style.left  = '-5000px';
-	document.getElementById('cannon4').style.top  = '-5000px';
-	document.getElementById('ball4').classList.toggle('inactive');
+	document.getElementById('cannon4').style.left = Math.floor(Math.random() * screen.availWidth) + 1 + 'px';
+	document.getElementById('cannon4').style.top  = Math.floor(Math.random() * screen.availHeight - 50) + 1 + 'px';
+	document.getElementById('ball4').style.left = document.getElementById('cannon4').style.left;
+	document.getElementById('ball4').style.top = document.getElementById('cannon4').style.top;
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}	
 	
 	if (collide('vehicle', 'cannon5')  == true) {
-	score += 1;
+	update();
 	document.getElementById('output').innerHTML =  'Score: ' + score;
-	document.getElementById('cannon5').style.left  = '-5000px';
-	document.getElementById('cannon5').style.top  = '-5000px';
-	document.getElementById('ball5').classList.toggle('inactive');
+	document.getElementById('cannon5').style.left = Math.floor(Math.random() * screen.availWidth) + 1 + 'px';
+	document.getElementById('cannon5').style.top  = Math.floor(Math.random() * screen.availHeight - 50) + 1 + 'px';
+	document.getElementById('ball5').style.left = document.getElementById('cannon5').style.left;
+	document.getElementById('ball5').style.top = document.getElementById('cannon5').style.top;
+	document.getElementById('audio1').innerHTML = '<audio autoplay src="aah.wav" />';
 	}
 	
 	
 	if(document.getElementById('ball5').style.left <= '0px'){
-		document.getElementById('ball5').style.left = '1129px';
+		document.getElementById('ball5').style.left = document.getElementById('cannon5').style.left;;
 	}
 	if(document.getElementById('ball4').style.left <= '0px'){
-		document.getElementById('ball4').style.left = '103px';
+		document.getElementById('ball4').style.left = document.getElementById('cannon4').style.left;;
 	}
 	if(document.getElementById('ball3').style.left <= '0px'){
-		document.getElementById('ball3').style.left = '789px';
+		document.getElementById('ball3').style.left = document.getElementById('cannon3').style.left;;
 	}
 	if(document.getElementById('ball2').style.left <= '0px'){
-		document.getElementById('ball2').style.left = '895px';
+		document.getElementById('ball2').style.left = document.getElementById('cannon2').style.left;;
 	}
 	if(document.getElementById('ball1').style.left <= '0px'){
-		document.getElementById('ball1').style.left = '500px';
+		document.getElementById('ball1').style.left = document.getElementById('cannon1').style.left;;
 	}
 	
 }
-
 function collide(my1, my2){
    left1   = parseInt(document.getElementById(my1).style.left)
    right1  = left1 + parseInt(document.getElementById(my1).style.width)
    top1    = parseInt(document.getElementById(my1).style.top)   
    bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
-
    left2   = parseInt(document.getElementById(my2).style.left)
    right2  = left2 + parseInt(document.getElementById(my2).style.width)
    top2    = parseInt(document.getElementById(my2).style.top)   
@@ -114,19 +127,21 @@ function collide(my1, my2){
        return true;
    }
 }
-
+function update(){
+	score += 1;
+	ballspeed += 1;
+}
 function cannonball() {
-    document.getElementById('ball1').style.left  = parseInt(document.getElementById('ball1').style.left) - 2 + 'px';
-	document.getElementById('ball2').style.left  = parseInt(document.getElementById('ball2').style.left) - 2 + 'px';
-	document.getElementById('ball3').style.left  = parseInt(document.getElementById('ball3').style.left) - 2 + 'px';
-	document.getElementById('ball4').style.left  = parseInt(document.getElementById('ball4').style.left) - 2 + 'px';
-	document.getElementById('ball5').style.left  = parseInt(document.getElementById('ball5').style.left) - 2 + 'px';
+    document.getElementById('ball1').style.left  = parseInt(document.getElementById('ball1').style.left) - 2 - ballspeed + 'px';
+	document.getElementById('ball2').style.left  = parseInt(document.getElementById('ball2').style.left) - 3 - ballspeed + 'px';
+	document.getElementById('ball3').style.left  = parseInt(document.getElementById('ball3').style.left) - 7 - ballspeed + 'px';
+	document.getElementById('ball4').style.left  = parseInt(document.getElementById('ball4').style.left) - 2 - ballspeed + 'px';
+	document.getElementById('ball5').style.left  = parseInt(document.getElementById('ball5').style.left) - 4 - ballspeed + 'px';
 	
 	if (collide('vehicle', 'ball1')  == true) {
 	if ( document.getElementById('ball1').classList.contains('inactive') ){
 	}
 	else {
-	document.getElementById('vehicle').style.left = '-5000px';
 	alert('You have been shot!');
 	location.reload();
 	}
@@ -135,7 +150,6 @@ function cannonball() {
 	if ( document.getElementById('ball2').classList.contains('inactive') ){
 	}
 	else {
-	document.getElementById('vehicle').style.left = '-5000px';
 	alert('You have been shot!');
 	location.reload();
 	}
@@ -144,7 +158,6 @@ function cannonball() {
 	if ( document.getElementById('ball3').classList.contains('inactive') ){
 	}
 	else {
-	document.getElementById('vehicle').style.left = '-5000px';
 	alert('You have been shot!');
 	location.reload();
 	}
@@ -153,7 +166,6 @@ function cannonball() {
 	if ( document.getElementById('ball4').classList.contains('inactive') ){
 	}
 	else {
-	document.getElementById('vehicle').style.left = '-5000px';
 	alert('You have been shot!');
 	location.reload();
 	}
@@ -162,15 +174,11 @@ function cannonball() {
 	if ( document.getElementById('ball5').classList.contains('inactive') ){
 	}
 	else {
-	document.getElementById('vehicle').style.left = '-5000px';
 	alert('You have been shot!');
 	location.reload();
 	}
 	}
 }
-
 </script>
 </body>
 </html>
-
-
