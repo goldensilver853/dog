@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>HTML Fireplace</title>
+<style>
+body { 
+    background-image: url('fireplace.png'), url('bricks.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 256px;
+    height: 258px;
+    position: absolute;
+    top: 5;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+</style>
+</head>
+<body>
+<div>
+        <canvas id="mycanvas" width="256px" height="258px"></canvas>
+</div>
+<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="js/lib/json2.js"></script>
+<script type="text/javascript" src="js/lib/jstorage.min.js"></script>
+<script type="text/javascript" src="js/class.js"></script>
+<script type="text/javascript" src="js/underscorec.js"></script>
+<script type="text/javascript" src="js/helpers.js"></script>
+<script type="text/javascript" src="js/objects/sky.js"></script>
+<script type="text/javascript" src="js/objects/fire.js"></script>
+<script type="text/javascript" src="js/domutil.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/frameloop.js"></script>
+<script type="text/javascript" src="js/firesimulation.js"></script>
+<script type="text/javascript">
+main("mycanvas");
+</script>
+</body>
+</html>
