@@ -7,7 +7,7 @@
 }
 </style>
 </head>
-<body onkeypress="{main();}" onload="{setInterval(cannonball, 5);}">
+<body onkeypress="{main();}" onload="{go();}">
 <div id="audio1"></div>
 <img  id="vehicle"  src="car.png"  style="position:absolute; width:30px; height:30px; left:30px; top:10px">  
 <br><br><br><br>
@@ -18,10 +18,17 @@
 <img  id="cannon5"  src="cannon5.png"  style="position:absolute; width:30px; height:30px; left:1129px; top:760px" /><img src="cannonball.png" id="ball5" style="position:absolute; width:10px; height:10px; left:1129px; top:760px" /><br>
 <div id="output">Score: 0</div>
 <div id="level">Level: 1</div>
+<div id="dog"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
 <script>
 var score = 0;
 var level = 1;
 var ballspeed = 0;
+var diff = 0;
+function go(){
+	setInterval(cannonball, 5);
+	setInterval(tempcalc, 10000);
+}
 function main(){
 	if(score == 5){
 	score = 0;
@@ -132,11 +139,11 @@ function update(){
 	ballspeed += 1;
 }
 function cannonball() {
-    document.getElementById('ball1').style.left  = parseInt(document.getElementById('ball1').style.left) - 2 - ballspeed + 'px';
-	document.getElementById('ball2').style.left  = parseInt(document.getElementById('ball2').style.left) - 3 - ballspeed + 'px';
-	document.getElementById('ball3').style.left  = parseInt(document.getElementById('ball3').style.left) - 7 - ballspeed + 'px';
-	document.getElementById('ball4').style.left  = parseInt(document.getElementById('ball4').style.left) - 2 - ballspeed + 'px';
-	document.getElementById('ball5').style.left  = parseInt(document.getElementById('ball5').style.left) - 4 - ballspeed + 'px';
+    document.getElementById('ball1').style.left  = parseInt(document.getElementById('ball1').style.left) - 2 - ballspeed - (diff * 2) + 'px';
+	document.getElementById('ball2').style.left  = parseInt(document.getElementById('ball2').style.left) - 3 - ballspeed - (diff * 2) + 'px';
+	document.getElementById('ball3').style.left  = parseInt(document.getElementById('ball3').style.left) - 7 - ballspeed - (diff * 2) + 'px';
+	document.getElementById('ball4').style.left  = parseInt(document.getElementById('ball4').style.left) - 2 - ballspeed - (diff * 2) + 'px';
+	document.getElementById('ball5').style.left  = parseInt(document.getElementById('ball5').style.left) - 4 - ballspeed - (diff * 2) + 'px';
 	
 	if (collide('vehicle', 'ball1')  == true) {
 	if ( document.getElementById('ball1').classList.contains('inactive') ){
@@ -183,6 +190,40 @@ function cannonball() {
 	location.reload();
 	}
 	}
+}
+
+function tempcalc() {
+    document.getElementById("dog").innerHTML = "";
+    var deviceID = "390045001547333438353733";
+    var accessToken = "f636d55ac9a22efcdc8d1ad6ead3908865c5a16a";
+    var varName = "lightvalue";
+	var temp = 0;
+
+    requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + varName + "/?access_token=" + accessToken;
+    $.getJSON(requestURL, function(json) {
+             temp = json.result;
+			 	if (temp > 119 && temp < 130){
+					diff = 1;
+					console.log("diff = 1");
+				}
+				if (temp > 129 && temp < 136){
+					diff = 2;
+					console.log("diff = 2");
+				}
+				if (temp > 135 && temp < 140){
+					diff = 3;
+					console.log("diff = 3");
+				}
+				if (temp > 139){
+					diff = 4;
+					console.log("diff = 4");
+				} 
+				if (temp < 120){
+					diff = 0;
+					console.log("diff = 0");
+				}
+			 console.log(temp);
+             });
 }
 </script>
 </body>
